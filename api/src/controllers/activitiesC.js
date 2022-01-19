@@ -33,6 +33,26 @@ const addActivity= async(req, res=response) =>{
 }
 
 
+
+const getAllActivities = async (req, res=response) =>{
+    try {
+        
+       const activities = await Activity.findAll()
+         res.json({
+            ok:true,
+            activities
+        })
+
+
+    } catch (error) {
+        console.log(error)
+    }
+    
+}
+
+
+
 module.exports = {
-    addActivity
+    addActivity,
+    getAllActivities
 }

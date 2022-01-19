@@ -47,6 +47,51 @@ export const countriesByName= (name) =>{
     }
 }
 
-export const countriesPAg = (data) =>({
-    tyes: types.countriesGetByPag, payload: data
-})
+export const getAllActivities= (name) =>{
+    return async (dispatch) =>{
+        try {
+            const resp = await axios(`http://localhost:3001/activity/`)
+        return dispatch({type: types.activityGetAll, payload: resp.data.activities})
+        
+        } catch (error) {
+            console.log(error)
+        }     
+
+    }
+}
+
+
+export const newActivity = (name, difficulty,duration,season,countries) =>{
+
+    return async (dispatch) =>{
+        try {
+            const resp = await axios.post(`http://localhost:3001/activity`,{
+                name, 
+                difficulty,
+                duration,
+                season,
+                countries
+            })
+        
+            return dispatch({type: types.activityNew, payload: resp.data.activity})
+
+        } catch (error) {
+            console.log(error)
+        }
+ 
+    }
+}
+
+export const filterByAct = (name) =>(
+    {
+        type: types.countriesGetByAct,
+        payload : name
+    }
+)
+
+export const filterByContinent = (continent) =>(
+    {
+        type: types.countriesGetByAct,
+        payload : continent
+    }
+)

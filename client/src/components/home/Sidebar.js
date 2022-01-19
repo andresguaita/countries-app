@@ -1,9 +1,34 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { filterByAct, getAllCountries } from '../../actions/Actions'
 
 
 
 export const Sidebar = () => {
+
+  const dispatch = useDispatch()
+
+  const  {activities} = useSelector(state => state.country)
+
+
+ 
+
+  const handleActivityChange =  ({target}) => {
+    
+    if(target.value === "default-activity"){
+      dispatch(getAllCountries())
+  }
+  dispatch(filterByAct(target.value))
+} 
+
+const handleContinentChange = ({target}) =>{
+
+}
+  
+
+  
+  
 
   return (
     <aside className='journal__sidebar'>
@@ -29,26 +54,24 @@ export const Sidebar = () => {
         </Link>
         </p>
       </div>
-      {/* <div className='sidebar__option-item mt-1'>
-      <p>Option 1</p>
-      <select name="select1" value="1">
-        <option value="value1" selected>Value 1</option>
-        <option value="value2" >Value 2</option>
-        <option value="value3">Value 3</option>
-      </select>
-      <p>Option 2</p>
-      <select name="select2" value="2">
-        <option value="value1" selected="selected">Value 1</option>
-        <option value="value2" >Value 2</option>
-        <option value="value3">Value 3</option>
-      </select>
-      <p>Option 3</p>
-      <select name="select3" value="3">
-        <option value="value1" selected>Value 1</option>
-        <option value="value2" >Value 2</option>
-        <option value="value3">Value 3</option>
-      </select>
-      </div> */}
+
+      <select name={'activity'} 
+       onChange={handleActivityChange} 
+       required>
+        <option value="default-activity">All</option>
+        {activities?.map(act => (<option key={act.id} value={act.name}>{act.name}</option>))}
+       </select>
+
+       <select onChange={handleContinentChange}>
+                    <option value='default-continent'>All</option>
+                    <option value='Africa'>Africa</option>
+                    <option value='Asia'>Asia</option>
+                    <option value='Europe'>Europe</option>
+                    <option value='North America'>North America</option>
+                    <option value='South America'>South America</option>
+                    <option value='Antarctica'>Antarctica</option>
+                </select>
+
 
     </aside>
   )

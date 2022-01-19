@@ -4,7 +4,7 @@ const initialState = {
     countries : [],
     activities: [],
     countryDetail: [],
-    countriesPag : []
+  
 }
 
 
@@ -14,12 +14,6 @@ export const AppReducer = ( state= initialState, action) => {
             return {
                 ...state,
                 countries: action.payload
-            }
-
-        case types.countriesGetByPag:
-            return {
-                ...state,
-                countriesPag: action.payload
             }
 
         case types.countriesGetById:
@@ -32,6 +26,36 @@ export const AppReducer = ( state= initialState, action) => {
             return{
                 ...state,
                 countries: action.payload
+            }
+
+            case types.countriesGetByAct:
+           
+            return{
+                ...state,
+                countries: state.countries.filter(country => {
+                    const activities = country.activities.map((activity) => (activity.name));
+                    return activities.includes(action.payload);
+                  })
+                }
+            
+            case types.countriesGetByCont:
+              return {
+                ...state,
+                countries : state.countries.filter(c => c.continent=== action.payload)
+              }
+                        
+            
+
+        case types.activityGetAll:
+            return{
+                ...state,
+                activities: action.payload
+            }
+        
+        case types.activityNew:
+            return {
+                ...state,
+                activities: action.payload
             }
             
            

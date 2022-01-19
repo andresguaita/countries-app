@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
-import {getAllCountries } from '../../actions/Actions'
+import {getAllActivities, getAllCountries } from '../../actions/Actions'
 import { CountryCard } from '../countries/CountryCard'
 
 
@@ -8,6 +8,8 @@ import { Navbar } from '../ui/Navbar'
 import { Sidebar } from './Sidebar'
 
 export const HomeScreen = () => {
+
+    const dispatch = useDispatch()
 
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -34,16 +36,16 @@ export const HomeScreen = () => {
            
        }       
     }
-    
 
-    const dispatch = useDispatch()
     
     useEffect(() => {
         dispatch(getAllCountries())
         
     }, [dispatch])
 
-
+    useEffect(() => {
+        dispatch(getAllActivities())   
+    }, [dispatch])
 
     return (
         <div>
