@@ -1,7 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
+import { countriesByName, getAllCountries } from '../../actions/Actions';
 
-export const Navbar = () => {
+export const Navbar = ({setCurrentPage}) => {
+
+    const dispatch = useDispatch()
+
+    const [input, setSearch] = useState({
+        search: '',
+    });
+
+    const handleSearch = ({target}) =>{
+        setSearch({
+            ...input,
+            [ target.name ]: target.value
+        });
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        if(input.search.length!==0) {
+            dispatch(countriesByName(input.search))
+        }
+        else{
+            dispatch(getAllCountries())
+            console.log('input vacio')
+        }
+    }
+
     return (
         <div className='navbar__content' >
           
@@ -11,9 +38,18 @@ export const Navbar = () => {
             >
             Countries Proyect
             </Link>
-          
+          <form onSubmit={handleSubmit}>
+
+          <input className='input' 
+          type='text' name='search' 
+          placeholder='Search a Country...' 
+          autoComplete='off'
+          value= {input.search}
+          onChange={handleSearch}/>
+          <button className='btn btn-primary' type='submit'>Search</button>
+          </form>
            
-           <input className='input' type='text' placeholder='Search a Country...'/>
+           
           
         </div>
     )

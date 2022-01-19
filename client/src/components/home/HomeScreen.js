@@ -11,23 +11,26 @@ export const HomeScreen = () => {
 
     const [currentPage, setCurrentPage] = useState(0)
 
-    
-
-   
     const  {countries} = useSelector(state => state.country)
+    
+    let offset = 9
+
+    const filteredCountries = () =>{
+        
+        return countries.slice(currentPage,currentPage+offset)
+    }
 
     const handleNextPage = () =>{
-        if(countries.length){
-            setCurrentPage(currentPage+1)
+        
+        if(countries.length > currentPage + offset){
+            setCurrentPage(currentPage+offset)
         }
-       
-       
     }
 
     const handlePrevPage= () =>{
         
-       if(currentPage>0){
-           setCurrentPage(currentPage-1)
+       if(currentPage>1){
+           setCurrentPage(currentPage-offset)
            
        }       
     }
@@ -36,18 +39,15 @@ export const HomeScreen = () => {
     const dispatch = useDispatch()
     
     useEffect(() => {
-        dispatch(getAllCountries(currentPage))
+        dispatch(getAllCountries())
         
-    }, [dispatch,currentPage])
-
-    
+    }, [dispatch])
 
 
 
-   
     return (
         <div>
-            <Navbar /> 
+            <Navbar setCurrentPage= {setCurrentPage}/> 
             
         <div className='journal__main-content'>
         <Sidebar/>
@@ -58,9 +58,9 @@ export const HomeScreen = () => {
         
             {
 
-                countries? 
+                countries
             
-             countries.map(country =>(
+                ? filteredCountries().map(country =>(
                 <CountryCard
                 key={country.id}
                 id={country.id}
@@ -69,10 +69,11 @@ export const HomeScreen = () => {
                 continent = {country.continent}
                 />
 
-                ))
-                : <h1>There are not country to show</h1>
-                }
+                )) : <h1>No hay Countries</h1> }
+                
+                
             </main>
+            <div></div>
         </div>
         
            

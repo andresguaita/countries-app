@@ -3,7 +3,8 @@ import { types } from "../../types/types"
 const initialState = {
     countries : [],
     activities: [],
-    countryDetail: []
+    countryDetail: [],
+    countriesPag : []
 }
 
 
@@ -15,10 +16,22 @@ export const AppReducer = ( state= initialState, action) => {
                 countries: action.payload
             }
 
+        case types.countriesGetByPag:
+            return {
+                ...state,
+                countriesPag: action.payload
+            }
+
         case types.countriesGetById:
             return {
                 ...state,
                 countryDetail: action.payload
+            }
+        
+        case types.countriesGetByName:
+            return{
+                ...state,
+                countries: action.payload
             }
             
            

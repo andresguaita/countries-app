@@ -35,10 +35,17 @@ const getCountries= async(req, res=response) =>{
 
             else{
 
-                const {page=0, size=9} = req.query
-                const countries = await Country.findAndCountAll({ 
-                limit: size,
-                offset: page*size
+                
+                const countries = await Country.findAll({
+                    include: [
+                        {
+                            model: Activity,
+                            attributes:  ["name", "difficulty", "duration", "season"],
+                            through: {
+                                attributes: [],
+                            }
+                        }
+                    ]
                 })
                 return res.json({
                     ok:true,
