@@ -25,8 +25,8 @@ export const Navbar = ({setCurrentPage}) => {
         }
         else{
             dispatch(getAllCountries())
-            console.log('input vacio')
         }
+        setSearch('')
     }
 
     return (

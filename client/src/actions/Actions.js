@@ -38,16 +38,22 @@ export const countriesByName= (name) =>{
                 name
             }
         })
+        
         return dispatch({type: types.countriesGetByName, payload: resp.data.country})
         
         } catch (error) {
-            console.log(error)
+            dispatch(countryNotFound())
         }     
 
     }
 }
 
-export const getAllActivities= (name) =>{
+export const countryNotFound = () => ({
+    type: types.countriesNotFound
+})
+
+
+export const getAllActivities= () =>{
     return async (dispatch) =>{
         try {
             const resp = await axios(`http://localhost:3001/activity/`)
@@ -91,7 +97,22 @@ export const filterByAct = (name) =>(
 
 export const filterByContinent = (continent) =>(
     {
-        type: types.countriesGetByAct,
+        type: types.countriesGetByCont,
         payload : continent
+    }
+)
+
+export const filterByPopulation = (order) =>(
+    {
+        type: types.countriesGetByPop,
+        payload : order
+    }
+)
+
+
+export const filterByLetter = (letter) =>(
+    {
+        type: types.countriesGetByLetter,
+        payload : letter
     }
 )

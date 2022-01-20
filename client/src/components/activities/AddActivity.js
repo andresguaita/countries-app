@@ -64,6 +64,7 @@ export const AddActivity = () => {
             ...input,
             [target.name]: target.value
         })
+        
         let ObjError= validate({...input,[target.name]:target.value})
         setError(ObjError)
     }

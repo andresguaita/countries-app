@@ -37,6 +37,10 @@ export const HomeScreen = () => {
        }       
     }
 
+    const handleReload = () =>{
+        dispatch(getAllCountries())
+    }
+
     
     useEffect(() => {
         dispatch(getAllCountries())
@@ -57,12 +61,10 @@ export const HomeScreen = () => {
         <button onClick={handleNextPage}>Next</button>
         <button onClick={handlePrevPage}>Back</button>
         <main className='notes__content'>
-        
+        <div>
             {
-
-                countries
-            
-                ? filteredCountries().map(country =>(
+                
+                countries.length? filteredCountries().map(country =>(
                 <CountryCard
                 key={country.id}
                 id={country.id}
@@ -71,8 +73,12 @@ export const HomeScreen = () => {
                 continent = {country.continent}
                 />
 
-                )) : <h1>No hay Countries</h1> }
+                )) :  <div>
+                <h1>Country Not Found!</h1>
                 
+               <button onClick={handleReload}>RELOAD</button>
+               </div> } 
+        </div>
                 
             </main>
             <div></div>

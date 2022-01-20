@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { filterByAct, getAllCountries } from '../../actions/Actions'
+import { filterByAct, filterByContinent, filterByLetter, filterByPopulation, getAllCountries } from '../../actions/Actions'
 
 
 
@@ -12,19 +12,41 @@ export const Sidebar = () => {
   const  {activities} = useSelector(state => state.country)
 
 
- 
+
+
 
   const handleActivityChange =  ({target}) => {
-    
-    if(target.value === "default-activity"){
-      dispatch(getAllCountries())
+  if(target.value ==='default-activity'){
+    dispatch(getAllCountries())
   }
+  
   dispatch(filterByAct(target.value))
 } 
 
 const handleContinentChange = ({target}) =>{
-
+  if(target.value === "default-continent"){
+    dispatch(getAllCountries())
 }
+else if(target.value !== "default-continent")(
+  dispatch(filterByContinent(target.value))
+)
+}
+
+const handlePopulationChange = ({target}) =>{
+  if(target.value ==='default-population'){
+    dispatch(getAllCountries())
+  }
+  
+  dispatch(filterByPopulation(target.value))
+} 
+
+const handleLetterChange = ({target}) =>{
+  if(target.value==='default-letter'){
+    dispatch(getAllCountries())
+  }
+  dispatch(filterByLetter(target.value))
+}
+
   
 
   
@@ -72,7 +94,17 @@ const handleContinentChange = ({target}) =>{
                     <option value='Antarctica'>Antarctica</option>
                 </select>
 
+        <select onChange={handlePopulationChange}>
+                    <option value='default-population'>All</option>
+                    <option value='des'>Desc</option>
+                    <option value='asc'>Asc</option>
+                </select>
 
+         <select onChange={handleLetterChange}>
+                    <option value='default-letter'>Order Alphabeth by</option>
+                    <option value='A'>A-z</option>
+                    <option value='Z'>Z-a</option>
+                </select>
     </aside>
   )
-}
+  }
