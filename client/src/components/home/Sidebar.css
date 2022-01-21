@@ -1,0 +1,8 @@
+.sidebar__content{
+    background-color: gray;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}

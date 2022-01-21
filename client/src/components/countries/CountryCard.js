@@ -1,32 +1,32 @@
 import { Link } from 'react-router-dom'
 
+import './CountryCard.css'
+
 export const CountryCard = ({
     id,
-   name,
-   flag,
-   continent
-  
+    name,
+    flag,
+    continent
+
 
 }) => {
 
 
     return (
-        <div className='country__card mt-5' >
-            
-                <img src={ flag } className="country__flag-img mt-1 " alt='flag' />
-            <div className='country__data'>
-            <h3 className="card-title">{name}</h3>
-                <p className="card-text">{continent}</p>    
+        <section className='card' >
+            <div className='card__item'>
+                <img src={flag} className="country__flag " alt='flag' />               
+                    <h3 className="card-title">{name}</h3>
+                    <p className="card-text">{continent}</p>
                     <Link to={`/${id}`}>
-                    Más...
+                        Más...
                     </Link>
-
             </div>
-                
-
-        </div>
 
 
-           
+        </section>
+
+
+
     )
 }

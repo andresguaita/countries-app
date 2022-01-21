@@ -3,16 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { filterByAct, filterByContinent, filterByLetter, filterByPopulation, getAllCountries } from '../../actions/Actions'
 
-
+import './Sidebar.css'
 
 export const Sidebar = () => {
 
   const dispatch = useDispatch()
 
   const  {activities} = useSelector(state => state.country)
-
-
-
 
 
   const handleActivityChange =  ({target}) => {
@@ -53,7 +50,7 @@ const handleLetterChange = ({target}) =>{
   
 
   return (
-    <aside className='journal__sidebar'>
+    <aside className='sidebar__content'>
 
       <div className='journal__sidebar-navbar'>
         <h3 className='mt-5'>

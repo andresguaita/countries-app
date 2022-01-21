@@ -1,0 +1,15 @@
+.home__main-content{
+    display: flex;
+}
+
+.home__item{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.home_item---country{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,21 @@
+
+
+.card{
+ padding: 10px;
+ display: flex;
+ justify-content: center;
+}
+
+.card__item{
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.country__flag{
+    max-width: 300px;
+    max-height: 180px;
+}
+

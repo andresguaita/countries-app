@@ -7,6 +7,8 @@ import { CountryCard } from '../countries/CountryCard'
 import { Navbar } from '../ui/Navbar'
 import { Sidebar } from './Sidebar'
 
+import './Home.css'
+
 export const HomeScreen = () => {
 
     const dispatch = useDispatch()
@@ -15,26 +17,37 @@ export const HomeScreen = () => {
 
     const  {countries} = useSelector(state => state.country)
     
-    let offset = 9
+    const [offset, setOffset] = useState(9)
 
+    useEffect(() => {
+        if(currentPage!==0){
+            setOffset(10)
+        }
+        else if(currentPage===0){
+            setOffset(9)
+        }
+        
+    }, [currentPage])
+
+    
     const filteredCountries = () =>{
         
         return countries.slice(currentPage,currentPage+offset)
     }
 
     const handleNextPage = () =>{
-        
         if(countries.length > currentPage + offset){
             setCurrentPage(currentPage+offset)
         }
     }
 
-    const handlePrevPage= () =>{
-        
+    const handlePrevPage= () =>{    
        if(currentPage>1){
-           setCurrentPage(currentPage-offset)
-           
-       }       
+           setCurrentPage(currentPage-offset)        
+       }  
+       if(currentPage>1){
+        setCurrentPage(currentPage-(offset-1))        
+    }      
     }
 
     const handleReload = () =>{
@@ -55,13 +68,13 @@ export const HomeScreen = () => {
         <div>
             <Navbar setCurrentPage= {setCurrentPage}/> 
             
-        <div className='journal__main-content'>
-        <Sidebar/>
+        <div className='home__main-content'>
+         <Sidebar/>
         <div>
         <button onClick={handleNextPage}>Next</button>
         <button onClick={handlePrevPage}>Back</button>
-        <main className='notes__content'>
-        <div>
+        <main className='home__item'>
+        <div className='home__item home_item---country'>
             {
                 
                 countries.length? filteredCountries().map(country =>(

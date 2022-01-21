@@ -26,7 +26,7 @@ export const Navbar = ({setCurrentPage}) => {
         else{
             dispatch(getAllCountries())
         }
-        setSearch('')
+       
     }
 
     return (
@@ -38,7 +38,7 @@ export const Navbar = ({setCurrentPage}) => {
             >
             Countries Proyect
             </Link>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} >
 
           <input className='input' 
           type='text' name='search' 
