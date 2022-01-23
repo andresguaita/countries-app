@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { countriesByName, getAllCountries } from '../../actions/Actions';
 
-export const Navbar = ({setCurrentPage}) => {
+import './Navbar.css'
+
+export const Navbar = () => {
 
     const dispatch = useDispatch()
 
@@ -11,46 +13,45 @@ export const Navbar = ({setCurrentPage}) => {
         search: '',
     });
 
-    const handleSearch = ({target}) =>{
+    const handleSearch = ({ target }) => {
         setSearch({
             ...input,
-            [ target.name ]: target.value
+            [target.name]: target.value
         });
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
-        if(input.search.length!==0) {
+        if (input.search.length !== 0) {
             dispatch(countriesByName(input.search))
         }
-        else{
+        else {
             dispatch(getAllCountries())
         }
-       
+
     }
 
     return (
-        <div className='navbar__content' >
-          
-           <Link 
-            className='link'
-             to="/"
-            >
-            Countries Proyect
-            </Link>
-          <form onSubmit={handleSubmit} >
+        <div className='navbar'  >
+            <img className='navbar__icon' src='/assets/navicon.svg' alt='world' />
+            <div className='navbar__items'>
+                <div className='navbar__form'>
+                    <form onSubmit={handleSubmit} >
+                        <input className='navbar__input'
+                            type='text' name='search'
+                            placeholder='Search a Country...'
+                            autoComplete='off'
+                            value={input.search}
+                            onChange={handleSearch} />
+                        <button className='navbar__btn' type='submit'><i className="fas fa-search"></i></button>
+                    </form>
+                </div>
 
-          <input className='input' 
-          type='text' name='search' 
-          placeholder='Search a Country...' 
-          autoComplete='off'
-          value= {input.search}
-          onChange={handleSearch}/>
-          <button className='btn btn-primary' type='submit'>Search</button>
-          </form>
-           
-           
-          
+            </div>
+
+
+
+
         </div>
     )
 }

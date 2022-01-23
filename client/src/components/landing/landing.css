@@ -6,21 +6,22 @@
     box-sizing: border-box;
 }
 
-body{
+/* body{
     font-family: 'Prata', serif;
     background: #ede8e2;
     display: flex;
     height: 100vh;
     
-}
+} */
+
 
 .grid{
-    background: #BCC7D3;
+    background: #000;
     height: 90vh;
     width: 90%;
     max-width: 1200px;
-    margin-top: 15px;
-    margin: auto;
+    margin-top: 30px;
+    margin-left: 100px;
     box-shadow: 0 0 30px -10px rgb(138, 135, 135, 0.5);
     display: grid;
     grid-template-columns: repeat(8,1fr);
@@ -30,28 +31,63 @@ body{
 
 .grid::before {
     content: '';
-    grid-column: 4/-1;
+    grid-column: 3/-1;
     grid-row: 1/-1;
     background-image: url('../../../public/assets/landing.png');
     background-size: cover;
-    background-position: right top;
     clip-path: polygon(0 0, 100% 0%, 100% 0, 0 0);
-    animation: show 2s ease forwards;
+    animation: show 2s 3.5s ease-out forwards;
 }
 
 .grid__texts{
-    color: white;
+    color:  white;
+    font-family: 'Prata', serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     grid-row: 2/-2;
-    grid-column: 2/8;
+    grid-column: 1/4;
+    text-align: center;
     z-index: 1;
+    
+   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%) ;
+   transform: translate(50%);
+   animation: show 2s forwards, move 1s 2s forwards;
 }
 
 .grid__title{
+    font-family: 'Prata', serif;
     font-size: 4rem;
+}
+
+.grid__title--transform{
+    font-family: 'Prata', serif;
+    font-size: 2rem;
+    transform: translate(20%);
+    animation: move 1s 2s forwards;
+}
+
+.grid__button{
+    background-color: #75c2f9;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    width: 100px;
+    height: 45px;
+}
+
+.grid__button--link{
+    color: black;
+    font-size: 1rem;
+    text-decoration: none;
 }
 
 @keyframes show {
     to {
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes move {
+    to {
+        transform: translate(0);
     }
 }

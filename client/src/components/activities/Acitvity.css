@@ -35,7 +35,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background: #00B0FF;
+    background: #673ab7;
     position: absolute;
     top: 0;
     left: 0;
@@ -60,7 +60,7 @@
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: #00B0FF;
+    background-color: #673ab7;
     -webkit-box-shadow: 1px 3px 19px 5px rgba(0,0,0,0.28); 
     box-shadow: 1px 3px 19px 5px rgba(0,0,0,0.28);
     
@@ -81,20 +81,20 @@
     display: block;
     width: 80px;
     height: 4px;
-    background: #00B0FF;
+    background: #673ab7;
     margin-top: 10px;
 }
 
 .input{
     width: 100%;
     outline: none;
-    border: 2px solid #00B0FF;
+    border: 2px solid #673ab7;
     border-radius: 2px;
 }
 
 .form__submit{
     display: block;
-    background: #00B0FF;
+    background: #673ab7;
     width: 200px;
     color: #000;
     font-family: var(--font);
@@ -107,7 +107,7 @@
 }
 
 .select{
-    border: 2px solid #00B0FF;
+    border: 2px solid #673ab7;
 }
 
 .danger{
@@ -124,9 +124,5 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0;
-}
-
-.country__select{
-    background: green;
 }
 

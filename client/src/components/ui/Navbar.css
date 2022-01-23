@@ -1,0 +1,45 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    margin-bottom: 15px;
+    background-color: black;
+    justify-content: center;
+    
+}
+.navbar__form{
+    display: flex;
+    justify-content: center;
+}
+.navbar__items{
+    display: flex;
+    align-self: center;
+
+    
+}
+
+.navbar__input{
+    height: 30px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+}
+
+input:focus{
+    outline:none;
+} 
+
+.navbar__icon{
+    display: flex;
+    justify-content: flex-end;
+    width: 50px;
+    height: 40px;
+}
+
+
+.navbar__btn{
+    height: 30px;
+    width: 40px;
+    margin-left: 5px;
+    cursor: pointer;
+}

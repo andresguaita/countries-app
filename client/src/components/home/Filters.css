@@ -1,0 +1,44 @@
+.filter__content{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.content-select{
+	max-width: 250px;
+	position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+ 
+.content-select select{
+	display: inline-block;
+	width: 200px;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 35px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: black;
+	font-size: 1em;
+	color: #999;
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(0,0,0,0.2);
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.25s ease;
+}
+ 
+.content-select select:hover{
+	background: #673ab7;
+	color: black;
+}
+ 
+ 
+.content-select:hover i{
+	margin-top: 3px;
+}

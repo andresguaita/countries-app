@@ -9,6 +9,7 @@ const initialState = {
 }
 
 
+
 export const AppReducer = ( state= initialState, action) => {
     switch (action.type) {
         case types.countriesGetAll:
@@ -17,6 +18,7 @@ export const AppReducer = ( state= initialState, action) => {
                 countries: action.payload,
                 allCountryContent: action.payload
             }
+
 
         case types.countriesGetById:
             return {

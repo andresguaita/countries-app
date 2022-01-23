@@ -13,20 +13,21 @@ export const CountryCard = ({
 
 
     return (
-        <section className='card' >
-            <div className='card__item'>
-                <img src={flag} className="country__flag " alt='flag' />               
-                    <h3 className="card-title">{name}</h3>
-                    <p className="card-text">{continent}</p>
-                    <Link to={`/${id}`}>
-                        Más...
-                    </Link>
-            </div>
 
 
-        </section>
+        <section class="card">
+                     <div className='Link__container'>
+                     <button className='card__button'><Link className='Link__text'to={`/${id}`}>More Info</Link></button>
+                        </div>
+                    <article class="card__item">
+                        <img src={flag} className="card__picture" alt='flag' />
+                        <div class="card__texts">
+                            <h2 class="card__title">{name}</h2>
+                            <p class="card__paragraph">{continent}</p>
+                        </div>
+                    </article>
+                    
+                </section>
 
-
-
-    )
+                )
 }
