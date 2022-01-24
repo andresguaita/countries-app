@@ -32,7 +32,7 @@ export const HomeScreen = () => {
             setOffset(9)
         }
         
-    }, [currentPage])
+    }, [currentPage,numberPage])
 
   
     const filteredCountries = () =>{
@@ -49,14 +49,14 @@ export const HomeScreen = () => {
 
     const handlePrevPage= () =>{    
        if(currentPage>0){
-           setCurrentPage(currentPage-offset)        
+           setCurrentPage(currentPage-offset)  
+           setNumberPage(numberPage-1)      
        }  
        if(currentPage>0){
-        setCurrentPage(currentPage-(offset-1))        
+        setCurrentPage(currentPage-(offset-1))  
+        setNumberPage(numberPage-1)      
     }
-    if(currentPage>0)
-    setNumberPage(numberPage-1)     
-    }
+}
 
     const handleReload = () =>{
         dispatch(getAllCountries())
@@ -103,13 +103,12 @@ export const HomeScreen = () => {
         </div>
 
         <div>
-        <div className='button'>
-        {/* <button className='button__back' onClick={handlePrevPage}><i className="fas fa-arrow-left fa-2x"></i>  Back</button> 
-        <button className='button__next' onClick={handleNextPage}>Next  <i className="fas fa-arrow-right fa-2x"></i></button> */}
+        
+       { countries.length && <div className='button'>
         <div className='button__item' onClick={handlePrevPage}><span>Previous</span></div>
         <div className='button__item--page' ><span>{numberPage}</span></div>
         <div className='button__item' onClick={handleNextPage}><span>Next</span> <i classname="fas fa-arrow-right"></i></div>
-        </div>
+        </div>}
         
         </div>
            

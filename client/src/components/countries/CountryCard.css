@@ -1,13 +1,13 @@
 
 
 .card{
-width: 300px;
-height: 270px;
+width: 330px;
 display: flex;
 position: relative;
-flex-direction: column;
-border-radius: 10px 10px 0 0;
+border-radius: 5px;
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+background-color: #b2b4b6;
+overflow: hidden;
 }
 
 
@@ -21,13 +21,16 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     top: 0%;
     width: 100%;
     height: 100%;
-    padding: 100px 100px;
-    background: #683ab7d0;
+    padding: 20px 120px;
+    background: #22a8f0bb;
     transform: scale(0);
     transition: transform .5s;
     transform-origin: bottom center;
 }
-
+.card__item{
+    display: flex;
+    flex-direction: row;
+}
 .Link__text{
     display: flex;
     align-self: center;
@@ -45,24 +48,37 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 
 .card__texts{
-   
+    padding: 5px 5px;
     justify-content: center;
+   
    
 }
 
 .card__title{
     text-align: center;
+    font-size: 1.5rem;
+    justify-self: center;
+}
+
+.card__subtitle{
+    text-align: center;
+    justify-self: center;
+    font-size: .9rem;
 }
 
 .card__paragraph{
     text-align: center;
+    justify-self: center;
 }
 
 
 
 .card__picture{
-    width: 100%;
-    height: 60%;
+    width: 120px;
+    height: 90px;
+    margin-left: 5px;
+    margin-right: 20px;
     border-radius: 10px 10px 0 0;
+    align-self: center;
    
 }

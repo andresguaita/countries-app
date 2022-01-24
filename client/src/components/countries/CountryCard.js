@@ -23,6 +23,7 @@ export const CountryCard = ({
                         <img src={flag} className="card__picture" alt='flag' />
                         <div class="card__texts">
                             <h2 class="card__title">{name}</h2>
+                            <h3 class="card__subtitle">{id}</h3>
                             <p class="card__paragraph">{continent}</p>
                         </div>
                     </article>

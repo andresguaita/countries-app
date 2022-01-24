@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link,NavLink } from 'react-router-dom'
 import { countriesByName, getAllCountries } from '../../actions/Actions';
 
 import './Navbar.css'
@@ -32,25 +32,23 @@ export const Navbar = () => {
     }
 
     return (
-        <div className='navbar'  >
-            <img className='navbar__icon' src='/assets/navicon.svg' alt='world' />
+        <div className='navbar__container'  >
+
             <div className='navbar__items'>
-                <div className='navbar__form'>
-                    <form onSubmit={handleSubmit} >
-                        <input className='navbar__input'
-                            type='text' name='search'
-                            placeholder='Search a Country...'
-                            autoComplete='off'
-                            value={input.search}
-                            onChange={handleSearch} />
-                        <button className='navbar__btn' type='submit'><i className="fas fa-search"></i></button>
-                    </form>
-                </div>
 
+                <img className='navbar__icon' src='/assets/world.svg' alt='world' />
+                <form onSubmit={handleSubmit}>
+                    <input className='navbar__input'
+                        type='text' name='search'
+                        placeholder='Search a Country...'
+                        autoComplete='off'
+                        value={input.search}
+                        onChange={handleSearch} />
+                    <button className='navbar__btn' type='submit'><i className="fas fa-search" ></i></button>
+                </form>
+
+                <NavLink clasName= '__link' to='/activity'>Create Activity   <i className="fas fa-plus-square fa-x2"></i></NavLink>
             </div>
-
-
-
 
         </div>
     )
