@@ -54,13 +54,13 @@ const handleLetterChange = ({target}) =>{
 <select name={'activity'} 
  onChange={handleActivityChange} 
  required>
-  <option value="default-activity">Order Activity by</option>
+  <option value="default-activity">Order by Activity</option>
   {activities?.map(act => (<option key={act.id} value={act.name}>{act.name}</option>))}
  </select>
 
 
  <select onChange={handleContinentChange}>
-              <option value='default-continent'>Order Continent by</option>
+              <option value='default-continent'>Order by Continent</option>
               <option value='Africa'>Africa</option>
               <option value='Asia'>Asia</option>
               <option value='Europe'>Europe</option>
@@ -71,7 +71,7 @@ const handleLetterChange = ({target}) =>{
          
 
   <select onChange={handlePopulationChange}>
-              <option value='default-population'>Order Population by</option>
+              <option value='default-population'>Order by Population</option>
               <option value='des'>Desc</option>
               <option value='asc'>Asc</option>
           </select>

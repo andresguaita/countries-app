@@ -15,7 +15,7 @@ const fillDatabase = async() => {
         flag: res.flags[0],
         continent:res.continents[0],
         capital: res.capital? res.capital[0] : 'Capital not found',
-        subregion: res.subregion,
+        subregion: res.subregion? res.subregion : 'Subregion not found',
         area: res.area,
         population: res.population,
         }

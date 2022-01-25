@@ -36,7 +36,7 @@ export const Navbar = () => {
 
             <div className='navbar__items'>
 
-                <img className='navbar__icon' src='/assets/world.svg' alt='world' />
+                <Link to='/'><img className='navbar__icon' src='/assets/world.svg' alt='world' /></Link>
                 <form onSubmit={handleSubmit}>
                     <input className='navbar__input'
                         type='text' name='search'
@@ -47,7 +47,7 @@ export const Navbar = () => {
                     <button className='navbar__btn' type='submit'><i className="fas fa-search" ></i></button>
                 </form>
 
-                <NavLink clasName= '__link' to='/activity'>Create Activity   <i className="fas fa-plus-square fa-x2"></i></NavLink>
+                <Link className= 'navbar__link' to='/activity'><i className="fas fa-plus-square fa-x2"></i>Create Activity</Link>
             </div>
 
         </div>

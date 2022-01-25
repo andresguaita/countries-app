@@ -55,25 +55,27 @@
     display: grid;
     width: 70%;
     grid-auto-rows: max-content;
-    gap: 30px;
+    gap: 20px;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     -webkit-box-shadow: 1px 3px 19px 5px rgba(0,0,0,0.28); 
     box-shadow: 1px 3px 19px 5px rgba(0,0,0,0.28);
     background: #244e92;
-    
-    
+    border-radius: 5px;
 }
 
 .form__title{
+    color: #fff;
+    text-align: center;
     font-size: 3rem;
 
 }
 
 .form__subtitle{
+    color: #fff;
     text-align: center;
-    color : #000;
+    
 }
 
 .form__title::after{
@@ -95,9 +97,8 @@
 }
 
 .form__submit{
-    width: 200px;
+    width: 160px;
     color: #000;
-    font-family: var(--font);
     padding: 15px 20px;
     outline: none;
     border: none;
@@ -111,19 +112,44 @@
 
 
 .danger{
-    padding: 5px 1px;
-    width: 100%;
+    width: 90%;
+    height: 40px;
     outline: none;
+    border-radius: 5px;
+    justify-self: center;
     border: 2px solid red;
-    border-radius: 2px;
+}
 
+.danger__text{
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0;
+    background: red;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .country__contain{
     display: flex;
+    height: 30px;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 0;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    
+}
+
+.fa-times-circle{
+    cursor: pointer;
 }
 
 
@@ -135,7 +161,7 @@
 
 .modal__children img{
     width: 240px;
-    height: 150px;
+    height: 200px;
 }
 
 .content__select{
@@ -166,8 +192,21 @@
     transition: all 0.25s ease;
 }
  
-.content__select select:hover{
-	background: #673ab7;
-	color: black;
+.Link__back{
+    display: flex;
+    font-size: 1.2rem;
+    width: 50%; 
+    background: #244e92;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 18px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.fa-undo{
+    margin-right: 10px;
 }
  

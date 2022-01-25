@@ -22,7 +22,7 @@ export const HomeScreen = () => {
     
     const [offset, setOffset] = useState(9)
 
-   
+   const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if(currentPage!==0){
@@ -64,7 +64,11 @@ export const HomeScreen = () => {
 
     
     useEffect(() => {
+        setTimeout(()=>{
         dispatch(getAllCountries())
+        setLoading(false)
+        },5000)
+        
         
     }, [dispatch])
 
@@ -72,6 +76,8 @@ export const HomeScreen = () => {
         dispatch(getAllActivities())   
     }, [dispatch])
 
+    
+    if(loading) return ( <img src='/assets/loading2.gif' alt='loading'/>)
     return (
         
       <div className='home__content'>
@@ -85,7 +91,7 @@ export const HomeScreen = () => {
         <div className='home__countries'>
         {
                 
-                countries.length? filteredCountries().map(country =>(
+              countries.length? filteredCountries().map(country =>(
                 <CountryCard
                 key={country.id}
                 id={country.id}
@@ -105,9 +111,9 @@ export const HomeScreen = () => {
         <div>
         
        { countries.length && <div className='button'>
-        <div className='button__item' onClick={handlePrevPage}><span>Previous</span></div>
+        <div className='button__item' onClick={handlePrevPage}><i className="fas fa-arrow-left"></i> <span>Previous</span></div>
         <div className='button__item--page' ><span>{numberPage}</span></div>
-        <div className='button__item' onClick={handleNextPage}><span>Next</span> <i classname="fas fa-arrow-right"></i></div>
+        <div className='button__item' onClick={handleNextPage}><span>Next</span> <i className="fas fa-arrow-right"></i></div>
         </div>}
         
         </div>

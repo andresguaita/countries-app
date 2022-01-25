@@ -6,7 +6,8 @@ display: flex;
 position: relative;
 border-radius: 5px;
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-background-color: #b2b4b6;
+background-color: #244e92;
+color: white;
 overflow: hidden;
 }
 
@@ -48,8 +49,11 @@ overflow: hidden;
 
 
 .card__texts{
+    display: flex;
+    flex-direction: column;
     padding: 5px 5px;
-    justify-content: center;
+    justify-self: flex-end;
+    text-align: end;
    
    
 }
@@ -74,11 +78,13 @@ overflow: hidden;
 
 
 .card__picture{
-    width: 120px;
-    height: 90px;
+    width: 100px;
+     height: 100px;
     margin-left: 5px;
     margin-right: 20px;
-    border-radius: 10px 10px 0 0;
     align-self: center;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
    
 }

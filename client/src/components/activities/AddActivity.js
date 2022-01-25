@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getAllCountries, newActivity } from '../../actions/Actions'
 
 import './Acitvity.css'
@@ -56,14 +57,25 @@ export const AddActivity = () => {
 
   const arrDifficulty = ['1', '2', '3', '4', '5']
 
-
+  
   const handleSelect = ({ target }) => {
+    
     setInputChange({
       ...input,
       countriesS: [...input.countriesS, target.value]
     }
     );
   }
+
+  const handleRemoveSelect = (indexItem) =>{
+    setInputChange({
+      ...input,
+      countriesS: input.countriesS.filter((c, index) => index !== indexItem)
+    }
+    );
+  }
+
+  
 
   const handleInputChange = ({ target }) => {
     setInputChange({
@@ -91,6 +103,8 @@ export const AddActivity = () => {
 
   }
 
+  
+
 
   return (
 
@@ -100,7 +114,7 @@ export const AddActivity = () => {
         setModalOpen={setModalOpen}
       >
         <div className='modal__children'>
-          <img src='/assets/check2.svg' alt='check' />
+          <img src='/assets/check.gif' alt='check' />
           <h1>Activity has been successfully created</h1>
         </div>
 
@@ -113,7 +127,7 @@ export const AddActivity = () => {
         <h2 className='form__title'>Create Activity</h2>
         <h4 className='form__subtitle'>Create Awesome Activity!!!</h4>
         {error.name && (
-          <p className="danger__text">{error.name}</p>
+          <p className="danger__text"><i className="fas fa-exclamation-triangle"></i> {error.name}</p>
         )}
         <input placeholder="Name of Activity"
           type="text"
@@ -131,6 +145,9 @@ export const AddActivity = () => {
           onChange={handleInputChange}
           className={error.duration ? 'danger' : 'input'}
         />
+        {error.duration && (
+          <p className="danger__text"><i className="fas fa-exclamation-triangle"></i> {error.duration}</p>
+        )}
         <div className='content__select'>
         <select
   
@@ -138,13 +155,9 @@ export const AddActivity = () => {
           onChange={handleSelect}
           required>
           <option value="">Country</option>
-          {countries?.map(country => (<option value={country.id} key={country.id}>{country.name}</option>))}
+          {countries?.map(country => (<option value={country.id} key={country.id}>{country.name}</option> ))}
 
         </select>
-
-        {error.duration && (
-          <p className="danger__text">{error.duration}</p>
-        )}
 
         <select
          
@@ -164,11 +177,12 @@ export const AddActivity = () => {
           {arrSeason.map(season => (<option value={season} key={season}>{season}</option>))}
         </select>
         {input.countriesS && <div className='country__contain'>
-          {input.countriesS?.map(c => (<p key={c} className='country__select'>{c}&nbsp;</p>))}
+          {input.countriesS?.map((c,index) => (<p key={c} className='country__select' >{c}<i className="fas fa-times-circle" onClick={() => handleRemoveSelect(index)}></i></p>))}
         </div>}
         </div>
         
         <button name="submit" type="submit" className='form__submit' >Submit</button>
+        <Link to='/home' className='Link__back'><i className="fas fa-undo"></i>   Back to home</Link>
       </form>
 
     </section>
