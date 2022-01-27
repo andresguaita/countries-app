@@ -3,6 +3,7 @@ import { useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom'
 import {getAllActivities, getAllCountries } from '../../actions/Actions'
 import { CountryCard } from '../countries/CountryCard'
+import { LoadingScreen } from '../Loading/LoadingScreen'
 
 
 import { Navbar } from '../ui/Navbar'
@@ -44,7 +45,9 @@ export const HomeScreen = () => {
         if(countries.length > currentPage + offset){
             setCurrentPage(currentPage+offset)
         }
-        setNumberPage(numberPage+1)
+        if(countries.length>1){
+            setNumberPage(numberPage+1) 
+        }
     }
 
     const handlePrevPage= () =>{    
@@ -53,7 +56,7 @@ export const HomeScreen = () => {
            setNumberPage(numberPage-1)      
        }  
        if(currentPage>0){
-        setCurrentPage(currentPage-(offset-1))  
+        setCurrentPage(currentPage-(offset-1))
         setNumberPage(numberPage-1)      
     }
 }
@@ -67,7 +70,7 @@ export const HomeScreen = () => {
         setTimeout(()=>{
         dispatch(getAllCountries())
         setLoading(false)
-        },5000)
+        },2500)
         
         
     }, [dispatch])
@@ -77,7 +80,8 @@ export const HomeScreen = () => {
     }, [dispatch])
 
     
-    if(loading) return ( <img src='/assets/loading2.gif' alt='loading'/>)
+ if(loading) return (<LoadingScreen/>)
+
     return (
         
       <div className='home__content'>
