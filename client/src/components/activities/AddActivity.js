@@ -75,22 +75,22 @@ export const AddActivity = () => {
     );
   }
 
-  
 
-  const handleInputChange = ({ target }) => {
+  const handleInputChange = ( e ) => {
     setInputChange({
       ...input,
-      [target.name]: target.value
+      [e.target.name]: e.target.value
     })
 
-    let ObjError = validate({ ...input, [target.name]: target.value })
+    let ObjError = validate({ ...input, [e.target.name]: e.target.value })
     setError(ObjError)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(newActivity(input.name, input.difficulty, input.duration, input.season, input.countriesS))
+    if(input.name.trim().length>0 || input.duration.trim().length>0){
+      dispatch(newActivity(input.name, input.difficulty, input.duration, input.season, input.countriesS))
     setInputChange({
       name: '',
       difficulty: '',
@@ -100,7 +100,7 @@ export const AddActivity = () => {
     })
 
     setModalOpen(true)
-
+    }
   }
 
   
@@ -153,7 +153,7 @@ export const AddActivity = () => {
   
           name={'country'}
           onChange={handleSelect}
-          required>
+          >
           <option value="">Country</option>
           {countries?.map(country => (<option value={country.id} key={country.id}>{country.name}</option> ))}
 
@@ -163,7 +163,7 @@ export const AddActivity = () => {
          
           name={'difficulty'}
           onChange={handleInputChange}
-          required>
+          >
           <option value="">Dificulty</option>
           {arrDifficulty.map(difficulty => (<option value={difficulty} key={difficulty}>{difficulty}</option>))}
         </select>
@@ -172,7 +172,7 @@ export const AddActivity = () => {
          
           name={'season'}
           onChange={handleInputChange}
-          required>
+          >
           <option value="">Season</option>
           {arrSeason.map(season => (<option value={season} key={season}>{season}</option>))}
         </select>
@@ -180,7 +180,7 @@ export const AddActivity = () => {
           {input.countriesS?.map((c,index) => (<p key={c} className='country__select' >{c}<i className="fas fa-times-circle" onClick={() => handleRemoveSelect(index)}></i></p>))}
         </div>}
         </div>
-        
+       
         <button name="submit" type="submit" className='form__submit' >Submit</button>
         <Link to='/home' className='Link__back'><i className="fas fa-undo"></i>   Back to home</Link>
       </form>
