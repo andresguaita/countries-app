@@ -38,7 +38,9 @@ input:focus{
 
 .navbar__input{
     width: 200px;
-    border-radius: 5px;
+    border: none;
+    border-radius: 5px 0px 0px 5px
+   
 }
 
 .navbar__icon{
@@ -51,6 +53,8 @@ input:focus{
 .navbar__btn{
     height: 30px;
     width: 40px;
-    margin-left: 5px;
     cursor: pointer;
+    border: none;
+    background: #22a7f0;
+    border-radius: 0px 5px 5px 0px
 }

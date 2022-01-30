@@ -10,6 +10,7 @@ import { Navbar } from '../ui/Navbar'
 import { Filters } from './Filters'
 
 import './Home.css'
+import { HomeEmpty } from './HomeEmpty'
 
 export const HomeScreen = () => {
 
@@ -61,9 +62,6 @@ export const HomeScreen = () => {
     }
 }
 
-    const handleReload = () =>{
-        dispatch(getAllCountries())
-    }
 
     
     useEffect(() => {
@@ -104,11 +102,7 @@ export const HomeScreen = () => {
                 continent = {country.continent}
                 />
 
-                )) :  <div>
-                <h1>Country Not Found!</h1>
-                
-               <button onClick={handleReload}>RELOAD</button>
-               </div> }   
+                )) :  <HomeEmpty /> }   
               
         </div>
 
