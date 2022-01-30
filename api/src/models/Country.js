@@ -6,29 +6,47 @@ module.exports = (sequelize) => {
   return sequelize.define('country', {
     id: {
       type: DataTypes.STRING(3),
+      validate: {
+        is: /[a-zA-Z ]{2,254}/i
+      },
       allowNull: false,
       primaryKey: true
     },
     name: {
+      validate: {
+        is: /[a-zA-Z ]{2,254}/i
+      },
       type: DataTypes.STRING,
       allowNull: false,
     },
     flag: {
       type: DataTypes.STRING,
+      validate: {
+        is: /[a-zA-Z ]{2,254}/i
+      },
       allowNull: false,
       defaultValue: 'Flag not found'
     },
     continent: {
       type: DataTypes.STRING,
+      validate: {
+        is: /[a-zA-Z ]{2,254}/i
+      },
       allowNull: false,
       defaultValue: 'Continent not found'
     },
     capital: {
       type: DataTypes.STRING,
+      validate: {
+        is: /[a-zA-Z ]{2,254}/i
+      },
       allowNull: false,
     },
     subregion: {
       type: DataTypes.STRING,
+      validate: {
+        is: /[a-zA-Z ]{2,254}/i
+      },
 
     },
     area: {
