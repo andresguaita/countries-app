@@ -127,7 +127,7 @@ export const AddActivity = () => {
         <h2 className='form__title'>Create Activity</h2>
         <h4 className='form__subtitle'>Create Awesome Activity!!!</h4>
         {error.name && (
-          <p className="danger__text"><i className="fas fa-exclamation-triangle"></i> {error.name}</p>
+          <p className="danger__text"> {error.name}</p>
         )}
         <input placeholder="Name of Activity"
           type="text"
@@ -137,6 +137,9 @@ export const AddActivity = () => {
           autoComplete='off'
           onChange={handleInputChange} />
 
+        {error.duration && (
+          <p className="danger__text"> {error.duration}</p>
+        )}
         <input
           name={'duration'}
           placeholder='Duration of activity in hours'
@@ -145,14 +148,13 @@ export const AddActivity = () => {
           onChange={handleInputChange}
           className={error.duration ? 'danger' : 'input'}
         />
-        {error.duration && (
-          <p className="danger__text"><i className="fas fa-exclamation-triangle"></i> {error.duration}</p>
-        )}
+        
         <div className='content__select'>
         <select
   
           name={'country'}
           onChange={handleSelect}
+          required
           >
           <option value="">Country</option>
           {countries?.map(country => (<option value={country.id} key={country.id}>{country.name}</option> ))}
@@ -163,6 +165,7 @@ export const AddActivity = () => {
          
           name={'difficulty'}
           onChange={handleInputChange}
+          required
           >
           <option value="">Dificulty</option>
           {arrDifficulty.map(difficulty => (<option value={difficulty} key={difficulty}>{difficulty}</option>))}
@@ -172,17 +175,18 @@ export const AddActivity = () => {
          
           name={'season'}
           onChange={handleInputChange}
+          required
           >
           <option value="">Season</option>
           {arrSeason.map(season => (<option value={season} key={season}>{season}</option>))}
         </select>
-        {input.countriesS && <div className='country__contain'>
-          {input.countriesS?.map((c,index) => (<p key={c} className='country__select' >{c}<i className="fas fa-times-circle" onClick={() => handleRemoveSelect(index)}></i></p>))}
-        </div>}
+        { input.countriesS? <div className='country__contain'>
+          {input.countriesS?.map((c,index) => (<span key={c} className='country__select' >{c}<img src='assets/cross-icon.svg' alt='city'className='cross__addactivity' onClick={() => handleRemoveSelect(index)}/></span>))}
+        </div> : null}
         </div>
        
-        <button name="submit" type="submit" className='form__submit' >Submit</button>
-        <Link to='/home' className='Link__back'><i className="fas fa-undo"></i>   Back to home</Link>
+        <button name="submit" type="submit" className='form__submit' disabled={Object.keys(error).length === 0? false : true}>Submit</button>
+        <Link to='/home' className='Link__back'><img src='assets/undo-icon.png' alt='city'className='undo__addactivity'/>  Back to home</Link>
       </form>
 
     </section>

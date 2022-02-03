@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
 import { Link } from 'react-router-dom'
-import {getAllActivities, getAllCountries } from '../../actions/Actions'
+import {countriesDetailEmpty, getAllActivities, getAllCountries } from '../../actions/Actions'
 import { CountryCard } from '../countries/CountryCard'
 import { LoadingScreen } from '../Loading/LoadingScreen'
 
@@ -15,6 +15,7 @@ import { HomeEmpty } from './HomeEmpty'
 export const HomeScreen = () => {
 
     const dispatch = useDispatch()
+
 
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -77,6 +78,11 @@ export const HomeScreen = () => {
         dispatch(getAllActivities())   
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(countriesDetailEmpty())   
+    }, [dispatch])
+    
+
     
  if(loading) return (<LoadingScreen/>)
 
@@ -109,9 +115,9 @@ export const HomeScreen = () => {
         <div>
         
        { countries.length && <div className='button'>
-        <div className='button__item' onClick={handlePrevPage}><i className="fas fa-arrow-left"></i> <span>Previous</span></div>
+        <div className='button__item' onClick={handlePrevPage}><img src='assets/arrowb-icon.svg' alt='city'className='home__back'/><span>Previous</span></div>
         <div className='button__item--page' ><span>{numberPage}</span></div>
-        <div className='button__item' onClick={handleNextPage}><span>Next</span> <i className="fas fa-arrow-right"></i></div>
+        <div className='button__item' onClick={handleNextPage}><span>Next</span><img src='assets/arrown-icon.svg' alt='city'className='home__next'/></div>
         </div>}
         
         </div>

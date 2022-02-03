@@ -1,7 +1,6 @@
 .activities__contain{
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
     align-self: center;
     justify-content: center;
     margin-left: 19px;
@@ -15,16 +14,16 @@
     display: flex;
     flex-direction: row;
     text-align: center;
-    gap: 20px;
+    gap: 10px;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
 }
 
 .activities__title{
 
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .activities__notfount{

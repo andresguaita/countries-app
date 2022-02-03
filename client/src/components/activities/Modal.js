@@ -20,7 +20,7 @@ export const Modal = ({ children, modalOpen, setModalOpen }) => {
                         <h3>Activity</h3>
                     </div>
                     <div className='modal__button' onClick={handleModalChange}>
-                        <i className="far fa-times-circle"></i>
+                    <img src='assets/cross-icon.svg' alt='city'className='cross__addactivity' />
                     </div>
                     {children}
                 </div>

@@ -9,21 +9,17 @@ export const Navbar = () => {
 
     const dispatch = useDispatch()
 
-    const [input, setSearch] = useState({
-        search: '',
-    });
+    const [search, setSearch] = useState('')
 
     const handleSearch = ({ target }) => {
-        setSearch({
-            ...input,
-            [target.name]: target.value
-        });
+        setSearch(target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (input.search.length !== 0) {
-            dispatch(countriesByName(input.search))
+        if (search.length !== 0) {
+            dispatch(countriesByName(search))
+            setSearch('')
         }
         else {
             dispatch(getAllCountries())
@@ -36,18 +32,18 @@ export const Navbar = () => {
 
             <div className='navbar__items'>
 
-                <Link to='/'><img className='navbar__icon' src='/assets/world.svg' alt='world' /></Link>
+                <Link to='/'><img className='navbar__icon--world' src='/assets/world.svg' alt='world' /></Link>
                 <form onSubmit={handleSubmit}>
                     <input className='navbar__input'
                         type='text' name='search'
                         placeholder='Search a Country...'
                         autoComplete='off'
-                        value={input.search}
+                        value={search}
                         onChange={handleSearch} />
-                    <button className='navbar__btn' type='submit'><i className="fas fa-search" ></i></button>
+                    <button className='navbar__btn' type='submit'><img src='assets/search-icon.svg' alt='city'className='navbar__icon'/></button>
                 </form>
 
-                <Link className= 'navbar__link' to='/activity'><i className="fas fa-plus-square fa-x2"></i>Create Activity</Link>
+                <Link className= 'navbar__link' to='/activity'><img src='assets/plus-icon.svg' alt='city'className='navbar__icon--plus'/>Create Activity</Link>
             </div>
 
         </div>

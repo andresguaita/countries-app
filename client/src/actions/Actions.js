@@ -116,3 +116,9 @@ export const filterByLetter = (letter) =>(
         payload : letter
     }
 )
+
+export const countriesDetailEmpty = () =>(
+    {
+        type: types.countriesDetailEmpty
+    }
+)

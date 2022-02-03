@@ -20,9 +20,9 @@ const fillDatabase = async() => {
         population: res.population,
         }
       } );
-      if (!(await Country.findByPk("ARG"))) {
+    
         await Country.bulkCreate(country)
-    }
+    
     
     }
 

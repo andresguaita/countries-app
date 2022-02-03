@@ -39,12 +39,6 @@
     cursor: pointer;
 }
 
-.fa-arrow-right{
-    margin-left: 8px;
-}
-.fa-arrow-left{
-    margin-right: 8px;
-}
 
 .button__item:hover{
     opacity: .7;
@@ -61,5 +55,17 @@
     margin-bottom: 15px;
     justify-content: center;
     border-radius: 5px;
+}
+
+.home__back{
+    width: 35px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.home__next{
+    width: 35px;
+    height: 25px;
+    margin-left: 5px;
 }
 

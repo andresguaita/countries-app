@@ -55,7 +55,7 @@
     display: grid;
     width: 70%;
     grid-auto-rows: max-content;
-    gap: 20px;
+    gap: 10px;
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -107,6 +107,11 @@
     align-self: center;
     cursor: pointer;
     justify-self: center;
+}
+
+.form__submit:disabled {
+    cursor: default;
+    opacity: .6;
 }
 
 
@@ -167,7 +172,7 @@
 .content__select{
 	max-width: 400px;
 	position: relative;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-self: center;
     gap: 10px;
@@ -195,18 +200,27 @@
 .Link__back{
     display: flex;
     font-size: 1.2rem;
-    width: 50%; 
+    width: 60%; 
     background: #244e92;
     text-decoration: none;
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 18px;
     margin: auto;
     border-radius: 5px;
 }
 
-.fa-undo{
-    margin-right: 10px;
+.undo__addactivity{
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}
+
+.cross__addactivity{
+    width: 20px;
+    height: 25px;
+    cursor: pointer;
 }
  
