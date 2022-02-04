@@ -31,7 +31,7 @@ export const CountryDetail = () => {
     return (
         <section className='detail'>
            
-           <div className='detail__contain'>
+           <div className='detail__contain animate__animated animate__fadeInDown'>
                <figure className='detail__picture'>
                <Link to='/home' className='Link__back--detail'><img src='assets/undo-icon.svg' alt='city'className='detail__icon--undo'/>  Back to home</Link>
                    <img src={countryDetail.flag} className='detail__img'alt='flag'/>

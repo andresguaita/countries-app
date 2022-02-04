@@ -15,7 +15,7 @@ export const CountryCard = ({
     return (
 
 
-        <section class="card">
+        <section class="card animate__animated animate__fadeInDown">
                      <div className='Link__container'>
                      <button className='card__button'><Link className='Link__text'to={`/${id}`}>More Info</Link></button>
                         </div>

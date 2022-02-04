@@ -50,6 +50,7 @@ exports[`Test in <AddActivity/> component should render the <AddActivity/> corre
       <select
         name="country"
         onChange={[Function]}
+        required={true}
       >
         <option
           value=""
@@ -66,6 +67,7 @@ exports[`Test in <AddActivity/> component should render the <AddActivity/> corre
       <select
         name="difficulty"
         onChange={[Function]}
+        required={true}
       >
         <option
           value=""
@@ -106,6 +108,7 @@ exports[`Test in <AddActivity/> component should render the <AddActivity/> corre
       <select
         name="season"
         onChange={[Function]}
+        required={true}
       >
         <option
           value=""
@@ -143,6 +146,7 @@ exports[`Test in <AddActivity/> component should render the <AddActivity/> corre
     </div>
     <button
       className="form__submit"
+      disabled={false}
       name="submit"
       type="submit"
     >
@@ -153,10 +157,12 @@ exports[`Test in <AddActivity/> component should render the <AddActivity/> corre
       href="/home"
       onClick={[Function]}
     >
-      <i
-        className="fas fa-undo"
+      <img
+        alt="city"
+        className="undo__addactivity"
+        src="assets/undo-icon.png"
       />
-         Back to home
+        Back to home
     </a>
   </form>
 </section>

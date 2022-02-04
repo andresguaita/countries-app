@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector} from 'react-redux'
-import { Link } from 'react-router-dom'
 import {countriesDetailEmpty, getAllActivities, getAllCountries } from '../../actions/Actions'
 import { CountryCard } from '../countries/CountryCard'
 import { LoadingScreen } from '../Loading/LoadingScreen'

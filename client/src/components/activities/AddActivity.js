@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 import { getAllCountries, newActivity } from '../../actions/Actions'
 
 import './Acitvity.css'
-import { Modal } from './Modal'
+
 
 export const AddActivity = () => {
 
@@ -98,8 +99,8 @@ export const AddActivity = () => {
       season: '',
       countriesS: []
     })
-
-    setModalOpen(true)
+    Swal.fire('Success','Activity has been sucessfully created','success')
+    
     }
   }
 
@@ -109,16 +110,6 @@ export const AddActivity = () => {
   return (
 
     <section className="form">
-      <Modal
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
-      >
-        <div className='modal__children'>
-          <img src='/assets/check.gif' alt='check' />
-          <h1>Activity has been successfully created</h1>
-        </div>
-
-      </Modal>
       <figure className='form__picture'>
         <img src='/assets/form.svg' alt='form' className='form__img' />
       </figure>
